@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>resultados</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  
+</head>
+  <body>
+      <div>
+            <table>
+                    <tr>
+                        <th>id</th>
+                        <th>altura</th>
+                        <th>tipo</th>
+                        <th>longitud</th>
+                        <th>latitud</th>
+                    </tr>
+                    <% if (Data) {%>
+                            <% for(var i=0; i<Data.length; i++) { %>
+                                <tr>
+                                    <td><%=Data[i].id%></td>
+                                    <td><%=Data[i].altura%></td>
+                                    <td><%=Data[i].tipo%></td>
+                                    <td><%=Data[i].longitud%></td>
+                                    <td><%=Data[i].latitud%></td> 
+                                </tr>
+                                
+                            <%}%>
+                        <% } %>
+            </table>
+      </div>
+
+      <div>
+            <form action="/update/<%= Data.id %>" method="POST">
+                <table>
+                    <tbody>                       
+                        <tr>
+                            <td>Name:<%= Data.altura%> </td>
+                            <td><input type="text" name="altura" value="<%= Data.altura%>"  required></td>
+                        </tr>
+                        <tr>
+                            <td>Tipo: <%= Data.tipo%></td>
+                            <td><input type="text" name="tipo"  value="<%= Data.tipo%>" required/></td>
+                        </tr>
+                        <tr>
+                            <td>Longitud: <%= Data.longitud%></td>
+                            <td><input type="text" name="longitu"  value="<%= Data.longitu%>" required/></td>
+                        </tr>
+                        <tr>
+                            <td>Latitud: <%= Data.latitud%></td>
+                            <td><input type="text" name="latitud"  value="<%= Data.latitud%>" required/></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="submit" value="Save" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+      </div>
+        
+  </body>
+</html>
